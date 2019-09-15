@@ -6,9 +6,11 @@ tags: [numpy]
 comments: true
 ---
 
-## 1. Tạo ma trận từ các cấu trúc dữ liệu hỗ trợ array interface
+Ma trận là một khái niệm đã có từ lâu, chính xác là do ông James Sylvester đưa ra vào năm 1850. Mình không biết ông ấy chế ra nó để làm gì, nhưng kể từ khi cách mạng công nghiệp lần thứ 3 bùng nổ, máy tính ra đời thì ma trận đóng vai trò to lớn trong mọi lĩnh vực của khoa học máy tính. Numpy là một thứ viện mạnh mẽ cung cấp các hàm đại số tuyến tính được tối ưu tuyệt vời, được phát triển bằng Python-ngôn ngữ dễ học nhất thế giới, có cộng đồng hỗ trợ hùng hậu. Bài post hôm nay mình sẽ giới thiệu các bạn cách tạo một ma trận bằng thư viện numpy.
 
-Cách đơn giản nhất và cũng thường thấy nhất để khởi tạo ma trận trong numpy là ta sử dụng dụng hàm `numpy.array()` để chuyển các cấu trúc dữ liệu có hỗ trợ array interface (còn gọi là array-like structure) sang kiểu dữ liệu ma trận (`numpy.ndarray`). Cú pháp hàm:
+## 1. Sử dụng hàm khởi tạo ma trận
+
+Cách đơn giản nhất và cũng thường thấy nhất để khởi tạo ma trận trong numpy là ta sử dụng dụng hàm `numpy.array()` để chuyển các cấu trúc dữ liệu có hỗ trợ array interface (còn gọi là array-like structure) sang kiểu dữ liệu ma trận (`numpy.ndarray`). Cú pháp hàm như sau:
 
 ```python
 numpy.array(
@@ -21,16 +23,20 @@ numpy.array(
 )
 ```
 
+Giải thích các tham số của hàm :
+
 - **object** là một tham số bắt buộc, truyền vào dữ liệu có hỗ trợ array interface (array-like structure) như : list, tuple....
 - **dtype** là một tham số tùy chọn, chỉ định kiểu dữ liệu cho các phần tử của  ma trận. Nếu không được truyền, 'dtype' sẽ chỉ định kiểu dữ liệu ít tốn bộ nhớ nhất mà có thể lưu được tất cả phần tử ma trận. Một vài kiểu dữ liệu thường dùng trong numpy như `int float bool complex`.
 - **copy** là một tham số tùy chọn, có giá trị mặc định là `True`. Nếu giá trị là `True` thì dữ liệu của ma trận được cấp phát vùng nhớ mới độc lập với vùng nhớ của `object`, nếu giá trị là `False` thì dữ liệu ma trận dùng chung vùng nhớ với `object`. Tham số này đặc biệt hữu ích để tối ưu hóa sử dụng bộ nhớ. Tuy nhiên một số trường hợp dù `copy=False` nhưng vùng nhớ mới vẫn được cấp phát cho ma trận, ví dụ ta gán `dtype` sang kiểu dữ liệu khác với `object`.
 - **order** là một tham số tùy chọn, chỉ định cách lưu trữ ma trận trong bộ nhớ. Nếu các bạn đã học qua C, sẽ biết mảng được lưu thành chuỗi các ô nhớ liền kề nhau. Python lưu trữ ma trận dưới dạng array theo 2 cách  C(hoặc F)-order, nghĩa là nối các hàng(hoặc cột) của ma trận thành 1 chuỗi ô nhớ để lưu trữ.
 - **ndmin** : là một tham số tùy chỉnh, chỉ định số chiều tối thiểu của ma trận. Tham số này được dùng khá thường xuyên.
 
-Ngoài ra, nếu bạn đọc một số code cũ sẽ thường xuyên thấy ma trận được khởi tạo từ hàm `numpy.matrix()`. Hàm này có công dụng tương tự `np.array()` tuy nhiên không còn được hỗ trợ ở các phiên bản python trong tương lai.
+{: .box-error}
+Ngoài ra, nếu bạn đọc một số code cũ có thể sẽ thấy ma trận được khởi tạo từ hàm `numpy.matrix()`. Hàm này có công dụng tương tự `np.array()` tuy nhiên không còn được hỗ trợ ở các phiên bản python trong tương lai. Mình khuyên các bạn không nên sử dụng hàm này.
 
+### 2. Sử dụng các hàm tạo ma trận đặc biệt
 
-### 2. Sử dụng hàm tạo ma trận đặc biệt
+numpy là một thư viện mạnh mẽ, hỗ trợ rất nhiều hàm để tạo ra các ma trận đặc biệt (ma trận đơn vị, ma trận không ... ). Tuy nhiên để tăng tính linh hoặc, numpy cung cấp các tham số tùy chỉnh có thể làm sai khác đi tính chất của ma trận đặc biệt. Bạn đọc cần lưu ý để tránh hiểu sai về mặt lý thuyết. Ví dụ ma trận đơn vị luôn là ma trận vuông nhưng numpy cho phép ta tạo ra ma trận đơn vị hình chữ nhật :v.
 
 #### 2.1. Ma trận không
 
@@ -96,12 +102,12 @@ Hàm `numpy.diag()` trả về ma trận đường chéo hoặc đường chéo 
 numpy.diag(v, k=0)
 ```
 
-- 'v' là ma trận 2 chiều hoặc mảng một chiều.
+- `v` là ma trận 2 chiều hoặc mảng một chiều.
 - `k` là tham số tùy chọn, chỉ định đuờng chéo nhận chuỗi giá trị 1. Mặc định là đường chéo chính (k=0). Với k>0 (hoặc k <0) biểu diễn đường chéo ở trên đường chéo chính k đơn vị.
 
 #### 2.5.  Một số hàm sinh ma trận khác
 - `numpy.empty(shape)` trả về mảng với các phẩn tự có giá trị bất ký (giá trị của vùng nhớ được cấp phát). Đây làm hàm thường dùng khi bạn không quan tâm đến giá trị của các phần tử khi khởi tạo ma trận.
-- `numpy.arange(start, stop, step)` tương tự hàm `range()` nhưng trả về kiểu dữ liệu `numpy.ndarray`
+- `numpy.arange(start, stop, step)` tương tự hàm `range()` nhưng trả về kiểu dữ liệu ma trận.
 - `numpy.linspace(start, end, num))` trả về ma trận gồm `num` phần tử có giá trị cách đều nhau nằm trong đoạn [start, end] hoặc khoảng [start, end). 
 
 ### 3 Tạo ma trận từ phân phối xác xuất

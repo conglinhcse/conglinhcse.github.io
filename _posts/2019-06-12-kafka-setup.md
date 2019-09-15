@@ -6,6 +6,8 @@ tags: [kafka]
 comments: true
 ---
 
+Cài Kafka dễ lắm, mấy bạn nên lên trang chủ Kafka coi trước nha. Coi mà làm không được thì hẳn coi bài mình. Mà coi trang chủ mà làm không được chắc do máy bạn cài Java không đúng phiên bản Kafka yêu cầu thôi. Nếu không cài được thì các bạn comment bên dưới bài viết nha, mình sẽ hỗ trợ hết sức.
+
 # Cài đặt Java Development Kit
 
 Vì kafka cần Java Runtime Enviroment (JRE) để chạy, nên chúng ta sẽ cài đặt **OpenJDK**. Ở bài viết này, mình cài phiên bản **1.8**, để cài đặt ta gõ lệnh sau :
@@ -69,10 +71,6 @@ export KAFKA_HOME="/root/server/kafka_2.12-2.2.0/"
 ```
 /root/server/kafka_2.12-2.2.0/
 ```
-
-
-
-
 
 # Tài liệu tham khảo
 1. [Tutorial Point](https://www.tutorialspoint.com/apache_kafka/apache_kafka_installation_steps.htm)

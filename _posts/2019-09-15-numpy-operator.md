@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Phép toán ma trận trong numpy
+title: Phép toán trên ma trận
 subtitle: Giới thiệu phép toán ma trận trong numpy
 tags: [numpy]
 comments: true
 ---
+
+Ở [bài trước](https://urekmazinotog.github.io/2019-09-14-numpy-create/) mình đã hướng dẫn các bạn tạo ma trận, bài này mình sẽ giới thiệu khái niệm, tính chất các phép toán quan trọng trong đại số tuyến tính và các hàm tương ứng trong numpy. Phần khái niệm và tính được mình viết sơ sài, thiếu chính xác vì mình chỉ muốn giới thiệu hàm trong numpy cho các bạn (lý do đó phụ thôi, lý do chính là mình chả hiểu mấy phép toán này có ý nghĩa gì :(( ). Nếu các bạn có góp ý thì hãy comment bên dưới bài viết nha.
 
 ### Phép chuyển vị 
 
@@ -18,7 +20,7 @@ comments: true
 {: .box-note}
 Trong đại số tuyến tính, ma trận vuông $$ A $$ được gọi là khả nghịch khi tồn tại một ma trận vuông $$ B $$ sao cho tích có hướng của $$ A $$ và $$ B $$ (không quan tâm thứ tự) là một ma trận đơn vị $$ A \times B = B \times A = I $$. Khi đó ta gọi $$ B $$ là ma trận nghịch đảo của $$ A $$, ký hiệu là $$ A^{-1} $$ 
 
-**numpy** hỗ trợ các hàm  numpy.linalg.inv() numpt.linalg..pinv() để tính phép nghịch đảo. 
+**numpy** hỗ trợ các hàm  `numpy.linalg.inv()`, `numpt.linalg..pinv()` để tính phép nghịch đảo. 
 
 ### Vết ma trận
 
