@@ -6,7 +6,7 @@ tags: [numpy]
 comments: true
 ---
 
-Ở [bài trước](https://urekmazinotog.github.io/2019-09-14-numpy-create/) mình đã hướng dẫn các bạn tạo ma trận, bài này mình sẽ giới thiệu khái niệm, tính chất các phép toán quan trọng trong đại số tuyến tính và các hàm tương ứng trong numpy. Phần khái niệm và tính được mình viết sơ sài, thiếu chính xác vì mình chỉ muốn giới thiệu hàm trong numpy cho các bạn (lý do đó phụ thôi, lý do chính là mình chả hiểu mấy phép toán này có ý nghĩa gì :(( ). Nếu các bạn có góp ý thì hãy comment bên dưới bài viết nha.
+Ở [bài trước](https://khoidohpc.github.io/2019-09-14-numpy-create/) mình đã hướng dẫn các bạn tạo ma trận, bài này mình sẽ giới thiệu khái niệm, tính chất các phép toán quan trọng trong đại số tuyến tính và các hàm tương ứng trong numpy. Phần khái niệm và tính được mình viết sơ sài, thiếu chính xác vì mình chỉ muốn giới thiệu hàm trong numpy cho các bạn (lý do đó phụ thôi, lý do chính là mình chả hiểu mấy phép toán này có ý nghĩa gì :(( ). Nếu các bạn có góp ý thì hãy comment bên dưới bài viết nha.
 
 ### Phép chuyển vị 
 
@@ -32,28 +32,23 @@ Trong đại số tuyến tính, ma trận vuông $$ A $$ được gọi là kh�
 ### Hạng ma trận
 
 {: .box-note}
-**Hạng của ma trận** là số chiều của không gian vector tạo bởi các vector cột của ma trận. Hay dễ hiểu hơn, ta có thể nói hạng của ma trận là số vector cột độc lập tuyến tính tối đa của ma trận. Hoặc đơn giản nhất, hạng của ma trận là số vector hàng khác vector không khi đưa ma trận về dạng bậc thang.
+**Hạng của ma trận** (rank) là số chiều của không gian vector tạo bởi các vector cột của ma trận. Hay dễ hiểu hơn, ta có thể nói hạng của ma trận là số vector cột độc lập tuyến tính tối đa của ma trận. Hoặc đơn giản nhất, hạng của ma trận là số vector hàng khác vector không khi đưa ma trận về dạng bậc thang.
 
 **numpy** hỗ trợ hàm `numpy.linalg.matrix_rank()` để tính hạng của ma trận.
 
 ### Định thức
 
 {: .box-note}
-**Định thức** là ....
+**Định thức** (determinant) là một hàm cho mỗi ma trận vuông A, trả về một số vô hướng, ký hiệu là $$det(A)$$. Định thức thường được dùng để tính ma trận nghịch đảo và xác định hạng của ma trận.
 
 **numpy** hỗ trợ hàm `numpy.det()` để tính định của ma trận.
 
 ### Chuẩn ma trận
 
 {: .box-note}
-*Chuẩn của ma trận* là một đại lượng cho biết khoảng cách giữa 2 điểm trong không gian n chiều. Chúng được sử dụng thường xuyên trong các bài toán machine learning.
+**Chuẩn của ma trận** là một đại lượng cho biết khoảng cách giữa 2 điểm trong không gian n chiều. Chúng được sử dụng thường xuyên trong các bài toán machine learning.
 
 - Trong không gian một chiều, tức đường thẳng, khoảng cách giữa hai điểm là trị tuyệt đối của hiệu giữa hai điểm đó. Ta gọi khoảng cách đấy là norm 1.
 - Trong không gian hai chiều, tức mặt phẳng, khoảng cách giữa hai điểm là độ dài của vector tạo bởi hai điểm đó. Ta gọi khoảng cách đấy là norm 2 hay Euclid norm.
 
 **numpy** hỗ trợ hàm `numpy.linalg.norm()` để tính norm của ma trận.
-
-### Vector riêng, trị riêng
-
-Chưa viết
-

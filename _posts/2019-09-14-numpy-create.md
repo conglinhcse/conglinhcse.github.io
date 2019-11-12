@@ -106,10 +106,8 @@ numpy.diag(v, k=0)
 - `k` là tham số tùy chọn, chỉ định đuờng chéo nhận chuỗi giá trị 1. Mặc định là đường chéo chính (k=0). Với k>0 (hoặc k <0) biểu diễn đường chéo ở trên đường chéo chính k đơn vị.
 
 #### 2.5.  Một số hàm sinh ma trận khác
+Đây là những hàm sinh ma trận được sử dụng rất nhiều khi lập trình, tuy nhiên chúng không có định nghĩa trong lý thuyết đại số nên mình xin liệt kê chung ở đây.
+
 - `numpy.empty(shape)` trả về mảng với các phẩn tự có giá trị bất ký (giá trị của vùng nhớ được cấp phát). Đây làm hàm thường dùng khi bạn không quan tâm đến giá trị của các phần tử khi khởi tạo ma trận.
 - `numpy.arange(start, stop, step)` tương tự hàm `range()` nhưng trả về kiểu dữ liệu ma trận.
 - `numpy.linspace(start, end, num))` trả về ma trận gồm `num` phần tử có giá trị cách đều nhau nằm trong đoạn [start, end] hoặc khoảng [start, end). 
-
-### 3 Tạo ma trận từ phân phối xác xuất
-
-Chưa viết
